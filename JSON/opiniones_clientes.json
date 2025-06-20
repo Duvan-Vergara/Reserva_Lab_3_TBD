@@ -1,0 +1,58 @@
+[
+  {
+    "cliente_id": 1,
+    "empresa_id": 1,
+    "comentario": "Rápido y muy amable el repartidor.",
+    "puntuacion": 5,
+    "fecha": "2025-06-01T10:30:00Z"
+  },
+  {
+    "cliente_id": 2,
+    "empresa_id": 2,
+    "comentario": "Entrega puntual, pero el empaque llegó dañado.",
+    "puntuacion": 3,
+    "fecha": "2025-06-03T16:10:00Z"
+  },
+  {
+    "cliente_id": 3,
+    "empresa_id": 3,
+    "comentario": "Muy buena experiencia, volvería a comprar.",
+    "puntuacion": 4,
+    "fecha": "2025-06-06T11:50:00Z"
+  },
+  {
+    "cliente_id": 4,
+    "empresa_id": 4,
+    "comentario": "Se demoró más de lo esperado.",
+    "puntuacion": 2,
+    "fecha": "2025-06-08T12:15:00Z"
+  },
+  {
+    "cliente_id": 5,
+    "empresa_id": 5,
+    "comentario": "Producto en buen estado y a buen precio.",
+    "puntuacion": 5,
+    "fecha": "2025-06-10T13:45:00Z"
+  },
+  {
+    "cliente_id": 11,
+    "empresa_id": 1,
+    "comentario": "Todo bien, pero el seguimiento del pedido fue confuso.",
+    "puntuacion": 3,
+    "fecha": "2025-06-15T14:10:00Z"
+  },
+  {
+    "cliente_id": 12,
+    "empresa_id": 2,
+    "comentario": "Buen servicio y atención rápida.",
+    "puntuacion": 4,
+    "fecha": "2025-06-16T15:00:00Z"
+  },
+  {
+    "cliente_id": 13,
+    "empresa_id": 3,
+    "comentario": "Excelente logística, muy recomendado.",
+    "puntuacion": 5,
+    "fecha": "2025-06-17T16:30:00Z"
+  }
+]

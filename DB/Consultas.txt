@@ -1,0 +1,143 @@
+-- 1. Buscar los 5 pedidos más cercanos a la empresa con id_empresa_asociada = id
+SELECT 
+    p.id_pedido,
+    ST_Distance(
+        ea.ubicacion_empresa_asociada::geography,
+        p.ubicacion_entrega::geography
+    ) AS distancia_metros
+FROM 
+    EMPRESA_ASOCIADA ea
+JOIN 
+    PEDIDO p ON TRUE
+JOIN 
+    DETALLE_PEDIDO dp ON p.id_detalle_pedido = dp.id_detalle_pedido
+WHERE 
+    ea.id_empresa_asociada = 2
+    AND dp.entregado = false
+ORDER BY 
+    distancia_metros ASC
+LIMIT 5;
+
+-- 2. Determinar si un cliente se encuentra dentro de una zona de cobertura.
+SELECT
+  c.id_cliente,
+  c.nombre,
+  CASE
+    WHEN ST_Within(c.ubicacion_cliente, z.zona_geom) THEN 'Dentro de la zona'
+    ELSE 'Fuera de la zona'
+  END AS estado
+FROM cliente c
+JOIN zona_cobertura z
+  ON z.id_zona = 3
+
+
+--3 Calcular la distancia total recorrida por un repartidor en el último mes
+
+SELECT 
+  r.nombre AS repartidor,
+  ROUND((SUM(ST_Length(p.ruta_estimada::geography)) / 1000)::numeric, 2) AS km_recorridos
+FROM 
+  pedido p
+JOIN repartidor r ON p.id_repartidor = r.id_repartidor
+JOIN detalle_pedido dp ON p.id_detalle_pedido = dp.id_detalle_pedido
+WHERE 
+  dp.hora_entrega >= NOW() - INTERVAL '1 month'
+GROUP BY 
+  r.nombre;
+
+
+-- 4. Identificar el punto de entrega más lejano desde cada empresa asociada.
+SELECT 
+  e.id_empresa_asociada,
+  e.nombre AS empresa,
+  p.id_pedido,
+  ST_Distance(e.ubicacion_empresa_asociada, p.ubicacion_entrega) AS distancia
+FROM EMPRESA_ASOCIADA e
+JOIN PEDIDO p ON p.id_pedido = (
+  SELECT p2.id_pedido
+  FROM PEDIDO p2
+  ORDER BY ST_Distance(e.ubicacion_empresa_asociada, p2.ubicacion_entrega) DESC
+  LIMIT 1
+);
+
+--5 Listar todos los pedidos cuya ruta estimada cruce más de 2 zonas de reparto
+
+  SELECT 
+  p.id_pedido,
+  COUNT(DISTINCT z.id_zona) AS zonas_cruzadas
+FROM 
+  pedido p
+JOIN zona_cobertura z
+  ON ST_Intersects(p.ruta_estimada, z.zona_geom)
+GROUP BY 
+  p.id_pedido
+HAVING 
+  COUNT(DISTINCT z.id_zona) > 2;
+
+--6. Determinar los clientes que están a más de 5km de cualquier empresa o farmacia. (Como están las distancias en grados, 5 km ≈ 0.045 grados.
+
+SELECT c.id_cliente, c.nombre
+FROM cliente c
+WHERE NOT EXISTS (
+  SELECT 1
+  FROM empresa_asociada e
+  WHERE ST_Distance(c.ubicacion_cliente, e.ubicacion_empresa_asociada) <= 0.045
+);
+
+
+
+-- ##### EXTRAS ##### 
+
+
+-- extra 1. Implementar una función que calcule automáticamente la zona a la que pertenece un cliente.
+SELECT z.id_zona, z.nombre, z.tipo
+FROM ZONA_COBERTURA z
+JOIN CLIENTE c ON c.id_cliente = 5
+WHERE ST_Within(c.ubicacion_cliente, z.zona_geom);
+
+-- extra 2. Detectar zonas con alta densidad de pedidos mediante agregación de puntos.
+WITH zona_pedidos AS (
+  SELECT 
+    z.id_zona,
+    z.nombre,
+    ST_Collect(p.ubicacion_entrega) AS pedidos_agrupados
+  FROM ZONA_COBERTURA z
+  JOIN PEDIDO p ON ST_Within(p.ubicacion_entrega, z.zona_geom)
+  GROUP BY z.id_zona, z.nombre
+)
+SELECT 
+  zp.id_zona,
+  zp.nombre,
+  COUNT(p.id_pedido) AS pedidos_en_buffer
+FROM zona_pedidos zp
+JOIN PEDIDO p ON ST_Intersects(
+    ST_Buffer(zp.pedidos_agrupados::geography, 500)::geometry,
+    p.ubicacion_entrega
+  )
+GROUP BY zp.id_zona, zp.nombre
+ORDER BY pedidos_en_buffer DESC;
+
+-- extra 3. Crear una tabla de puntos de interés cercanos (hospitales, centros logísticos, etc.) y consultarlos con ST_DWithin.
+
+SELECT 
+          poi.id,
+          poi.nombre,
+          poi.tipo,
+          ST_Distance(
+            poi.ubicacion,
+            geography(ST_Transform(c.ubicacion_cliente, 4326))
+          ) AS distancia_metros
+        FROM 
+          cliente c
+        JOIN 
+          punto_interes poi ON TRUE
+        WHERE 
+          c.id_cliente = :idCliente
+          AND ST_DWithin(
+                poi.ubicacion,
+                geography(ST_Transform(c.ubicacion_cliente, 4326)),
+                :radio
+              )
+        ORDER BY 
+          distancia_metros
+        LIMIT 5;

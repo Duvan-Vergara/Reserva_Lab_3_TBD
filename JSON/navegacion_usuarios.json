@@ -1,0 +1,98 @@
+[
+  {
+    "cliente_id": 1,
+    "eventos": [
+      { "tipo": "busqueda", "valor": "hamburguesas", "timestamp": "2025-03-20T10:05:00Z" },
+      { "tipo": "click", "valor": "producto_1", "timestamp": "2025-03-20T10:06:00Z" },
+      { "tipo": "filtro", "valor": "categoria:Comida", "timestamp": "2025-03-20T10:07:00Z" }
+    ]
+  },
+  {
+    "cliente_id": 2,
+    "eventos": [
+      { "tipo": "busqueda", "valor": "notebook", "timestamp": "2025-04-01T12:00:00Z" },
+      { "tipo": "click", "valor": "producto_2", "timestamp": "2025-04-01T12:01:30Z" }
+    ]
+  },
+  {
+    "cliente_id": 3,
+    "eventos": [
+      { "tipo": "busqueda", "valor": "pantalones", "timestamp": "2025-04-10T09:00:00Z" },
+      { "tipo": "click", "valor": "producto_3", "timestamp": "2025-04-10T09:01:00Z" },
+      { "tipo": "filtro", "valor": "precio:<20000", "timestamp": "2025-04-10T09:02:00Z" }
+    ]
+  },
+  {
+    "cliente_id": 4,
+    "eventos": [
+      { "tipo": "busqueda", "valor": "batidora", "timestamp": "2025-04-12T10:30:00Z" },
+      { "tipo": "click", "valor": "producto_4", "timestamp": "2025-04-12T10:32:00Z" }
+    ]
+  },
+  {
+    "cliente_id": 5,
+    "eventos": [
+      { "tipo": "busqueda", "valor": "juguetes para niños", "timestamp": "2025-04-15T11:15:00Z" },
+      { "tipo": "click", "valor": "producto_5", "timestamp": "2025-04-15T11:16:00Z" }
+    ]
+  },
+  {
+    "cliente_id": 6,
+    "eventos": [
+      { "tipo": "busqueda", "valor": "bebidas", "timestamp": "2025-05-01T08:20:00Z" },
+      { "tipo": "click", "valor": "producto_6", "timestamp": "2025-05-01T08:21:00Z" },
+      { "tipo": "filtro", "valor": "stock>30", "timestamp": "2025-05-01T08:22:00Z" }
+    ]
+  },
+  {
+    "cliente_id": 7,
+    "eventos": [
+      { "tipo": "busqueda", "valor": "smartwatch", "timestamp": "2025-05-05T13:00:00Z" },
+      { "tipo": "click", "valor": "producto_7", "timestamp": "2025-05-05T13:01:00Z" }
+    ]
+  },
+  {
+    "cliente_id": 8,
+    "eventos": [
+      { "tipo": "busqueda", "valor": "camisetas", "timestamp": "2025-05-10T09:40:00Z" },
+      { "tipo": "click", "valor": "producto_8", "timestamp": "2025-05-10T09:42:00Z" }
+    ]
+  },
+  {
+    "cliente_id": 9,
+    "eventos": [
+      { "tipo": "busqueda", "valor": "vajilla", "timestamp": "2025-06-01T10:00:00Z" },
+      { "tipo": "click", "valor": "producto_9", "timestamp": "2025-06-01T10:02:00Z" },
+      { "tipo": "filtro", "valor": "empresa:Entregas Ya", "timestamp": "2025-06-01T10:03:00Z" }
+    ]
+  },
+  {
+    "cliente_id": 10,
+    "eventos": [
+      { "tipo": "busqueda", "valor": "peluches", "timestamp": "2025-06-05T11:00:00Z" },
+      { "tipo": "click", "valor": "producto_10", "timestamp": "2025-06-05T11:01:30Z" }
+    ]
+  },
+  {
+    "cliente_id": 11,
+    "eventos": [
+      { "tipo": "busqueda", "valor": "comida rápida", "timestamp": "2025-06-10T13:30:00Z" },
+      { "tipo": "click", "valor": "producto_1", "timestamp": "2025-06-10T13:31:30Z" }
+    ]
+  },
+  {
+    "cliente_id": 12,
+    "eventos": [
+      { "tipo": "busqueda", "valor": "ofertas tecnología", "timestamp": "2025-06-14T15:10:00Z" },
+      { "tipo": "click", "valor": "producto_2", "timestamp": "2025-06-14T15:12:00Z" },
+      { "tipo": "filtro", "valor": "precio:<100000", "timestamp": "2025-06-14T15:13:00Z" }
+    ]
+  },
+  {
+    "cliente_id": 13,
+    "eventos": [
+      { "tipo": "busqueda", "valor": "promociones", "timestamp": "2025-06-17T09:50:00Z" },
+      { "tipo": "click", "valor": "producto_3", "timestamp": "2025-06-17T09:51:30Z" }
+    ]
+  }
+]

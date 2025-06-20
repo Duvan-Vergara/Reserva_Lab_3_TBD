@@ -1,0 +1,77 @@
+[
+  {
+    "pedido_id": 1,
+    "eventos": [
+      { "estado": "creado", "timestamp": "2025-05-01T09:00:00Z" },
+      { "estado": "en preparación", "timestamp": "2025-05-01T09:15:00Z" },
+      { "estado": "en reparto", "timestamp": "2025-05-01T09:45:00Z" },
+      { "estado": "entregado", "timestamp": "2025-05-01T10:20:00Z" }
+    ]
+  },
+  {
+    "pedido_id": 2,
+    "eventos": [
+      { "estado": "creado", "timestamp": "2025-05-03T13:30:00Z" },
+      { "estado": "cancelado", "timestamp": "2025-05-03T14:00:00Z" }
+    ]
+  },
+  {
+    "pedido_id": 3,
+    "eventos": [
+      { "estado": "creado", "timestamp": "2025-05-06T09:30:00Z" },
+      { "estado": "en preparación", "timestamp": "2025-05-06T10:00:00Z" },
+      { "estado": "en reparto", "timestamp": "2025-05-06T11:00:00Z" },
+      { "estado": "entregado", "timestamp": "2025-05-06T11:40:00Z" }
+    ]
+  },
+  {
+    "pedido_id": 4,
+    "eventos": [
+      { "estado": "creado", "timestamp": "2025-05-08T08:00:00Z" },
+      { "estado": "en preparación", "timestamp": "2025-05-08T08:20:00Z" },
+      { "estado": "en reparto", "timestamp": "2025-05-08T09:30:00Z" },
+      { "estado": "entregado", "timestamp": "2025-05-08T10:15:00Z" }
+    ]
+  },
+  {
+    "pedido_id": 5,
+    "eventos": [
+      { "estado": "creado", "timestamp": "2025-05-10T11:30:00Z" },
+      { "estado": "en preparación", "timestamp": "2025-05-10T11:50:00Z" },
+      { "estado": "en reparto", "timestamp": "2025-05-10T12:30:00Z" },
+      { "estado": "cancelado", "timestamp": "2025-05-10T13:20:00Z" }
+    ]
+  },
+  {
+    "pedido_id": 6,
+    "eventos": [
+      { "estado": "creado", "timestamp": "2025-06-02T15:00:00Z" },
+      { "estado": "en preparación", "timestamp": "2025-06-02T16:00:00Z" },
+      { "estado": "en reparto", "timestamp": "2025-06-02T17:00:00Z" },
+      { "estado": "entregado", "timestamp": "2025-06-02T17:30:00Z" }
+    ]
+  },
+  {
+    "pedido_id": 7,
+    "eventos": [
+      { "estado": "creado", "timestamp": "2025-06-05T11:30:00Z" },
+      { "estado": "cancelado", "timestamp": "2025-06-05T12:30:00Z" }
+    ]
+  },
+  {
+    "pedido_id": 8,
+    "eventos": [
+      { "estado": "creado", "timestamp": "2025-06-08T12:30:00Z" },
+      { "estado": "en preparación", "timestamp": "2025-06-08T13:30:00Z" },
+      { "estado": "entregado", "timestamp": "2025-06-08T14:10:00Z" }
+    ]
+  },
+  {
+    "pedido_id": 9,
+    "eventos": [
+      { "estado": "creado", "timestamp": "2025-06-10T15:10:00Z" },
+      { "estado": "en reparto", "timestamp": "2025-06-10T16:00:00Z" },
+      { "estado": "entregado", "timestamp": "2025-06-10T16:45:00Z" }
+    ]
+  }
+]
